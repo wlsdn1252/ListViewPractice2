@@ -26,6 +26,9 @@ class StudentAdapter(val mContext : Context, val resId : Int, mList: ArrayList<S
 
         // if문이 끝나면 tmpRow에는 null값이 무조건 없다.
         val row = tmpRow!!
+
+
+
         return row
     }
 }
