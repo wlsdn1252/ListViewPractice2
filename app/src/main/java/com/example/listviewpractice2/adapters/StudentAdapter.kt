@@ -34,6 +34,9 @@ class StudentAdapter(val mContext : Context, val resId : Int, val mList: ArrayLi
         val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
         val birthYearTxt = row.findViewById<TextView>(R.id.birthYearTxt)
 
+        // 나이계산 함수
+        val koreaAge = 2021 - studentData.birthYear + 1
+
         nameTxt.text = studentData.name
         birthYearTxt.text = "(${studentData.birthYear})년생"
 
