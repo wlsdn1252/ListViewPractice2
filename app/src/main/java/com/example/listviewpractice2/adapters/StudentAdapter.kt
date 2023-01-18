@@ -5,10 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.example.listviewpractice2.R
 import com.example.listviewpractice2.datas.Student
 
-class StudentAdapter(val mContext : Context, val resId : Int, mList: ArrayList<Student>) : ArrayAdapter<Student>(mContext,resId,mList) {
+class StudentAdapter(val mContext : Context, val resId : Int, val mList: ArrayList<Student>) : ArrayAdapter<Student>(mContext,resId,mList) {
 
     // 인플레이터 변수 대입
     val inf = LayoutInflater.from(mContext)
@@ -27,7 +28,14 @@ class StudentAdapter(val mContext : Context, val resId : Int, mList: ArrayList<S
         // if문이 끝나면 tmpRow에는 null값이 무조건 없다.
         val row = tmpRow!!
 
+        val studentData = mList[position]
 
+        // xml파일의 id를 바로 가져오면 에러가 남
+        val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
+        val birthYearTxt = row.findViewById<TextView>(R.id.birthYearTxt)
+
+        nameTxt.text = studentData.name
+        birthYearTxt.text = "(${studentData.birthYear})년생"
 
         return row
     }
